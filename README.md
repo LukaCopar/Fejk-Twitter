@@ -1,4 +1,4 @@
 projekt-No.-1-Samo
 kul projekt je to
 
-pa ne sam to tut to
+Ta program bo narejen kot twitter pc isto
