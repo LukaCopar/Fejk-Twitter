@@ -5,6 +5,8 @@ $user = 'root';
 $pass = '';
 $charset = 'utf8';
 
+$salt = "lajsdfsnla8954z89I()&";
+
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $opt = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
