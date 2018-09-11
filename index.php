@@ -6,14 +6,17 @@ include_once('./header.php');
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
-       // <link rel="stylesheet" href="./css/style.css">
+        <title>tweeter</title>
+       
     </head>
     <body>
         <?php
-        header('Location: ./login/login.php');
         ?>
 
-        
+        <div class="jumbotron">
+            
+            <h1>index.php</h1>
+            
+        </div>
     </body>
 </html>

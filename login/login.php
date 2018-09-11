@@ -18,8 +18,8 @@ include_once('./header.php');
         ?>
          <div>
         <form action="./login_check.php" method="post"><br><br>
-            <input type="text" name="first_name" placeholder="ime" autofocus class="skatle"/><br><br>
-            <input type="password" name="pass" placeholder="geslo" class="skatle" /><br><br>
+            <input type="text" name="first_name" placeholder="username" autofocus class="skatle"/><br><br>
+            <input type="password" name="pass" placeholder="password" class="skatle" /><br><br>
             <input type="submit" class="button" value="Log In"/>
             
         </form>
