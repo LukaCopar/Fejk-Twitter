@@ -11,7 +11,7 @@ include_once('./header.php');
     </head>
     <body>
         <?php
-        // put your code here
+        header('Location: ./login/login.php');
         ?>
 
         
