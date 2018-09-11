@@ -14,6 +14,6 @@ include_once('./header.php');
         // put your code here
         ?>
 
-        <h1>Welcome to my fake tweets</h1>
+        
     </body>
 </html>

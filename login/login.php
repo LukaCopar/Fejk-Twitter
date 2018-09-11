@@ -25,7 +25,7 @@ include_once('./header.php');
         </form>
             
             
-        <button class="button" onclick="location.href='vnos_ucenca.php';">Register</button>
+        
         </div>
     </body>
 </html>
