@@ -1,110 +1,358 @@
-/*
-Created		4. 09. 2018
-Modified		4. 09. 2018
-Project		
-Model		
-Company		
-Author		
-Version		
-Database		mySQL 5 
-*/
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Gostitelj: 127.0.0.1
+-- Čas nastanka: 17. sep 2018 ob 11.45
+-- Različica strežnika: 10.1.16-MariaDB
+-- Različica PHP: 7.0.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
-Create table users (
-	id Serial NOT NULL,
-	country_id Bigint UNSIGNED NOT NULL,
-	name Text NOT NULL,
-	surname Text NOT NULL,
-	password Text NOT NULL,
-	username Text NOT NULL,
-	profile_pic_URL Text NOT NULL,
-	birthday Date,
-	authentication_token Text,
- Primary Key (id)) ENGINE = MyISAM;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-Create table tweets (
-	id Serial NOT NULL,
-	user_id Bigint UNSIGNED NOT NULL,
-	content Text NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+--
+-- Zbirka podatkov: `fejk_baza`
+--
 
-Create table comments (
-	id Serial NOT NULL,
-	content Text NOT NULL,
-	user_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+-- --------------------------------------------------------
 
-Create table likes (
-	id Serial NOT NULL,
-	user_id Bigint UNSIGNED NOT NULL,
-	tweet_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+--
+-- Struktura tabele `comments`
+--
 
-Create table retweets (
-	id Serial NOT NULL,
-	user_id Bigint UNSIGNED NOT NULL,
-	tweet_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `content` mediumtext COLLATE utf8mb4_slovenian_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovenian_ci;
 
-Create table hashtags (
-	id Serial NOT NULL,
-	hashtag Text NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+-- --------------------------------------------------------
 
-Create table messages (
-	id Serial NOT NULL,
-	recieved_id Bigint UNSIGNED NOT NULL,
-	sent_id Bigint UNSIGNED NOT NULL,
-	content Text NOT NULL,
-	time Datetime NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+--
+-- Struktura tabele `comments_tweets`
+--
 
-Create table notifications (
-	id Serial NOT NULL,
-	conten Text,
-	user_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+CREATE TABLE `comments_tweets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comment_id` bigint(20) UNSIGNED NOT NULL,
+  `tweet_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovenian_ci;
 
-Create table comments_tweets (
-	id Serial NOT NULL,
-	comment_id Bigint UNSIGNED NOT NULL,
-	tweet_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+-- --------------------------------------------------------
 
-Create table hashtags_tweets (
-	id Serial NOT NULL,
-	tweet_id Bigint UNSIGNED NOT NULL,
-	hashtag_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+--
+-- Struktura tabele `countries`
+--
 
-Create table follows (
-	id Serial NOT NULL,
-	user_id Bigint UNSIGNED NOT NULL,
-	follower_id Bigint UNSIGNED NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+CREATE TABLE `countries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` text NOT NULL,
+  `acronym` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-Create table countries (
-	id Serial NOT NULL,
-	name Text NOT NULL,
-	acronym Text NOT NULL,
- Primary Key (id)) ENGINE = MyISAM;
+--
+-- Odloži podatke za tabelo `countries`
+--
 
+INSERT INTO `countries` (`id`, `name`, `acronym`) VALUES
+(1, 'Slovenija', 'SLO');
 
-Alter table tweets add Foreign Key (user_id) references users (id) on delete  restrict on update  restrict;
-Alter table comments add Foreign Key (user_id) references users (id) on delete  restrict on update  restrict;
-Alter table likes add Foreign Key (user_id) references users (id) on delete  restrict on update  restrict;
-Alter table follows add Foreign Key (user_id) references users (id) on delete  restrict on update  restrict;
-Alter table follows add Foreign Key (follower_id) references users (id) on delete  restrict on update  restrict;
-Alter table messages add Foreign Key (recieved_id) references users (id) on delete  restrict on update  restrict;
-Alter table messages add Foreign Key (sent_id) references users (id) on delete  restrict on update  restrict;
-Alter table notifications add Foreign Key (user_id) references users (id) on delete  restrict on update  restrict;
-Alter table retweets add Foreign Key (user_id) references users (id) on delete  restrict on update  restrict;
-Alter table comments_tweets add Foreign Key (tweet_id) references tweets (id) on delete  restrict on update  restrict;
-Alter table hashtags_tweets add Foreign Key (tweet_id) references tweets (id) on delete  restrict on update  restrict;
-Alter table likes add Foreign Key (tweet_id) references tweets (id) on delete  restrict on update  restrict;
-Alter table retweets add Foreign Key (tweet_id) references tweets (id) on delete  restrict on update  restrict;
-Alter table comments_tweets add Foreign Key (comment_id) references comments (id) on delete  restrict on update  restrict;
-Alter table hashtags_tweets add Foreign Key (hashtag_id) references hashtags (id) on delete  restrict on update  restrict;
-Alter table users add Foreign Key (country_id) references countries (id) on delete  restrict on update  restrict;
+-- --------------------------------------------------------
 
+--
+-- Struktura tabele `follows`
+--
 
+CREATE TABLE `follows` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `follower_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `hashtags`
+--
+
+CREATE TABLE `hashtags` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `hashtag` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `hashtags_tweets`
+--
+
+CREATE TABLE `hashtags_tweets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tweet_id` bigint(20) UNSIGNED NOT NULL,
+  `hashtag_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `tweet_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `recieved_id` bigint(20) UNSIGNED NOT NULL,
+  `sent_id` bigint(20) UNSIGNED NOT NULL,
+  `content` text NOT NULL,
+  `time` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `conten` text,
+  `user_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `retweets`
+--
+
+CREATE TABLE `retweets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `tweet_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `tweets`
+--
+
+CREATE TABLE `tweets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `content` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabele `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `country_id` bigint(20) UNSIGNED NOT NULL,
+  `name` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
+  `surname` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
+  `password` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
+  `username` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
+  `profile_pic_URL` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `authentication_token` mediumtext COLLATE utf8_slovenian_ci
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+--
+-- Odloži podatke za tabelo `users`
+--
+
+INSERT INTO `users` (`id`, `country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`, `authentication_token`) VALUES
+(1, 1, 'Luka', 'Čopar', '12345', 'FabPotato', './wuz_gut.png', NULL, NULL);
+
+--
+-- Indeksi zavrženih tabel
+--
+
+--
+-- Indeksi tabele `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeksi tabele `comments_tweets`
+--
+ALTER TABLE `comments_tweets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `tweet_id` (`tweet_id`),
+  ADD KEY `comment_id` (`comment_id`);
+
+--
+-- Indeksi tabele `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indeksi tabele `follows`
+--
+ALTER TABLE `follows`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `follower_id` (`follower_id`);
+
+--
+-- Indeksi tabele `hashtags`
+--
+ALTER TABLE `hashtags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indeksi tabele `hashtags_tweets`
+--
+ALTER TABLE `hashtags_tweets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `tweet_id` (`tweet_id`),
+  ADD KEY `hashtag_id` (`hashtag_id`);
+
+--
+-- Indeksi tabele `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `tweet_id` (`tweet_id`);
+
+--
+-- Indeksi tabele `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `recieved_id` (`recieved_id`),
+  ADD KEY `sent_id` (`sent_id`);
+
+--
+-- Indeksi tabele `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeksi tabele `retweets`
+--
+ALTER TABLE `retweets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `tweet_id` (`tweet_id`);
+
+--
+-- Indeksi tabele `tweets`
+--
+ALTER TABLE `tweets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeksi tabele `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `country_id` (`country_id`);
+
+--
+-- AUTO_INCREMENT zavrženih tabel
+--
+
+--
+-- AUTO_INCREMENT tabele `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `comments_tweets`
+--
+ALTER TABLE `comments_tweets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT tabele `follows`
+--
+ALTER TABLE `follows`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `hashtags`
+--
+ALTER TABLE `hashtags`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `hashtags_tweets`
+--
+ALTER TABLE `hashtags_tweets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `retweets`
+--
+ALTER TABLE `retweets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `tweets`
+--
+ALTER TABLE `tweets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT tabele `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
