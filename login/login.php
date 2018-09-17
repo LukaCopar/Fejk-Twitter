@@ -10,17 +10,26 @@ include_once('./header.php');
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Login</title>
+        
+    
         </head>
     <body>
-        <?php
-        // put your code here
-        ?>
-         <div>
-        <form action="./login_check.php" method="post"><br><br>
-            <input type="text" name="first_name" placeholder="username" autofocus class="skatle"/><br><br>
-            <input type="password" name="pass" placeholder="password" class="skatle" /><br><br>
+        
+        
+        <div id="login">
+        <form action="./login_check.php" method="post">
+            <input type="text" name="first_name" placeholder="username" autofocus class="skatle"/>
+            <input type="password" name="pass" placeholder="password" class="skatle" />
             <input type="submit" class="button" value="Log In"/>
+             <?php
+        if(isset($_GET['id'])>0){
+             $id = $_GET['id'];
+                if($id == 1){
+                    echo '<div class="alert alert-warning width">wrong password!</div>';
+                    }
+        }
+        ?>
             
         </form>
             

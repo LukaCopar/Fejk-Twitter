@@ -1,7 +1,7 @@
 <?php
 include_once '../connection/database.php';
 $ime = $pdo->query('SELECT * FROM users');
-$row = $ime->fetch(PDO::FETCH_ASSOC);
+$row = $ime->fetch();
 
 $ussername = $_POST['first_name'];
 $password = $_POST['pass'];
@@ -16,5 +16,8 @@ if($row['name'] == $ussername && $row['password'] == $password){
                   setcookie($cookie_name, $cookie_value, time() + 60, "/");
             } 
             header('Location: ../index.php');
+        }else{
+            header('Location: ./login.php?id=1');
+            
         }
          

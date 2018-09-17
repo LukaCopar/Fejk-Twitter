@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/login/login_check.php</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/connection/session.php</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/header.php</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/footer.php</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/index.php</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/login/login.php</file>
-            <file>file:/C:/xampp/htdocs/fejk_tweetr/connection/database.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/style.css</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/login/header.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/login/login_check.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/login/login.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/footer.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/header.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/index.php</file>
         </group>
     </open-files>
 </project-private>
