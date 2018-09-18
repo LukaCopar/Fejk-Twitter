@@ -5,6 +5,8 @@ $user = 'root';
 $pass = '';
 $charset = 'utf8';
 
+$cookie_login = "login_cookie";
+
 $salt = "lajsdfsnla8954z89I()&";
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

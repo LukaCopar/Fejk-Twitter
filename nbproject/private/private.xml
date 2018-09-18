@@ -7,9 +7,11 @@
             <file>file:/D:/Xampp/htdocs/Fejk-Twitter/login/header.php</file>
             <file>file:/D:/Xampp/htdocs/Fejk-Twitter/login/login_check.php</file>
             <file>file:/D:/Xampp/htdocs/Fejk-Twitter/login/login.php</file>
-            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/footer.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/connection/cookie_check.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/connection/database.php</file>
             <file>file:/D:/Xampp/htdocs/Fejk-Twitter/header.php</file>
             <file>file:/D:/Xampp/htdocs/Fejk-Twitter/index.php</file>
+            <file>file:/D:/Xampp/htdocs/Fejk-Twitter/LogOut.php</file>
         </group>
     </open-files>
 </project-private>
