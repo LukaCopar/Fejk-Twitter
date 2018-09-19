@@ -12,6 +12,7 @@ include_once ('./connection/cookie_check.php');
         <style>
             body{
                 background-color: #e6ecf0; 
+                line-height: 20px;
             }
             
         </style>
@@ -19,14 +20,25 @@ include_once ('./connection/cookie_check.php');
     <body>
         
         <div id="leu-main">
+            <div id="leu-profile">
+                profile pa tu
+                
+                
+            </div>
             
-            leu
         </div>
         
         
         <div id="sredinski-main">
-            sreda
-            
+            <?php
+            for($i=0; $i<5; $i++){
+            echo ' <div class="tweet">';
+            echo ' this is post yes <br>';
+            echo '<img alt="picture here sry i no show" src="./images/twette.ico">';
+                
+            echo '  </div>';
+            }
+            ?>
         </div>
         
         
@@ -34,9 +46,7 @@ include_once ('./connection/cookie_check.php');
             desn
             
         </div>
-        <?php
-        include_once './footer.php';
-        ?>
+        
 
         
     </body>

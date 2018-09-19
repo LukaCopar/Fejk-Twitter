@@ -22,7 +22,8 @@ include_once('./header.php');
             <input type="text" name="first_name" placeholder="username" autofocus class="skatle"/>
             <input type="password" name="pass" placeholder="password" class="skatle" />
             <input type="submit" class="button" value="Log In"/>
-             <?php
+            <button type="button" class="button-up" onclick="location.href='../register/register.php';">Sign Up</button>
+            <?php
         if(isset($_GET['id'])>0){
              $id = $_GET['id'];
                 if($id == 1){
@@ -31,11 +32,13 @@ include_once('./header.php');
         }
 
         ?>
-            
         </form>
             
             
         
         </div>
+        <?php
+       // include_once '../footer.php';
+        ?>
     </body>
 </html>
