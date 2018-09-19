@@ -8,19 +8,36 @@ include_once ('./connection/cookie_check.php');
     <head>
         <meta charset="UTF-8">
         <title>tweeter</title>
+        <link rel="shortcut icon" href="./images/twette.ico"/>
         <style>
             body{
-                background-color: #e6ecf0;
-                
+                background-color: #e6ecf0; 
             }
             
         </style>
     </head>
     <body>
-        <?php
         
+        <div id="leu-main">
+            
+            leu
+        </div>
+        
+        
+        <div id="sredinski-main">
+            sreda
+            
+        </div>
+        
+        
+        <div id="desn-main">
+            desn
+            
+        </div>
+        <?php
+        include_once './footer.php';
         ?>
 
-        kr neki je tule ayyyyyyy
+        
     </body>
 </html>

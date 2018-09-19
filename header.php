@@ -2,7 +2,7 @@
 
 <?php
 include_once('./connection/database.php');
-
+include_once ('./connection/cookie_check.php');
 ?>
 <html>
     <head>
@@ -12,20 +12,25 @@ include_once('./connection/database.php');
     
     </head>
     <body>
+        <?php
+        if(isset($_COOKIE[$cookie_login])>0){
+    ?>
         
         <div class="header2">   
             <div id="leu">
-                hellos  
+                welcome: 
+                <?php
+                    echo $_COOKIE[$cookie_login];
+    ?>
                 
             </div>
             <div id="desn">
                 <button type="button" id="log_out_btn" onclick="location.href='./LogOut.php';">Log Out</button>
             </div>
-            <?php
-           
             
-       
-       
+            
+       <?php
+        }
         ?>
         </div>
        

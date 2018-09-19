@@ -7,7 +7,7 @@ $ussername = $_POST['first_name'];
 $password = $_POST['pass'];
 
 if($row['name'] == $ussername && $row['password'] == $password){
-        $cookie_value = $row['name']. $row['surname'];
+        $cookie_value = $row['name']. " ".$row['surname'];
         
             //checks if cookie alredy exists
             if(!isset($_COOKIE[$cookie_login])>0){
