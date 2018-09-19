@@ -12,7 +12,7 @@ if($row['name'] == $ussername && $row['password'] == $password){
             //checks if cookie alredy exists
             if(!isset($_COOKIE[$cookie_login])>0){
                 
-                  setcookie($cookie_login, $cookie_value,time() + (86400 * 30),"/");
+                  setcookie($cookie_login, $cookie_value,time() + (10*999999),"/");
                   header('Location: ../index.php');
                   die();
             } 
