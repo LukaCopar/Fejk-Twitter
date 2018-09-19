@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
--- Gostitelj: 127.0.0.1
--- Čas nastanka: 17. sep 2018 ob 11.45
--- Različica strežnika: 10.1.16-MariaDB
--- Različica PHP: 7.0.9
+-- Host: 127.0.0.1
+-- Generation Time: Sep 19, 2018 at 02:13 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Zbirka podatkov: `fejk_baza`
+-- Database: `fejk_baza`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -35,7 +37,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `comments_tweets`
+-- Table structure for table `comments_tweets`
 --
 
 CREATE TABLE `comments_tweets` (
@@ -47,7 +49,7 @@ CREATE TABLE `comments_tweets` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `countries`
+-- Table structure for table `countries`
 --
 
 CREATE TABLE `countries` (
@@ -57,7 +59,7 @@ CREATE TABLE `countries` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Odloži podatke za tabelo `countries`
+-- Dumping data for table `countries`
 --
 
 INSERT INTO `countries` (`id`, `name`, `acronym`) VALUES
@@ -66,7 +68,7 @@ INSERT INTO `countries` (`id`, `name`, `acronym`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `follows`
+-- Table structure for table `follows`
 --
 
 CREATE TABLE `follows` (
@@ -78,7 +80,7 @@ CREATE TABLE `follows` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `hashtags`
+-- Table structure for table `hashtags`
 --
 
 CREATE TABLE `hashtags` (
@@ -89,7 +91,7 @@ CREATE TABLE `hashtags` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `hashtags_tweets`
+-- Table structure for table `hashtags_tweets`
 --
 
 CREATE TABLE `hashtags_tweets` (
@@ -101,7 +103,7 @@ CREATE TABLE `hashtags_tweets` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `likes`
+-- Table structure for table `likes`
 --
 
 CREATE TABLE `likes` (
@@ -113,7 +115,7 @@ CREATE TABLE `likes` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE `messages` (
@@ -127,7 +129,7 @@ CREATE TABLE `messages` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `notifications`
+-- Table structure for table `notifications`
 --
 
 CREATE TABLE `notifications` (
@@ -139,7 +141,7 @@ CREATE TABLE `notifications` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `retweets`
+-- Table structure for table `retweets`
 --
 
 CREATE TABLE `retweets` (
@@ -151,7 +153,7 @@ CREATE TABLE `retweets` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `tweets`
+-- Table structure for table `tweets`
 --
 
 CREATE TABLE `tweets` (
@@ -163,7 +165,7 @@ CREATE TABLE `tweets` (
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -174,23 +176,24 @@ CREATE TABLE `users` (
   `password` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
   `username` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
   `profile_pic_URL` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
+  `banner_pic_url` text COLLATE utf8_slovenian_ci NOT NULL,
   `birthday` date DEFAULT NULL,
   `authentication_token` mediumtext COLLATE utf8_slovenian_ci
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
 --
--- Odloži podatke za tabelo `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`, `authentication_token`) VALUES
-(1, 1, 'Luka', 'Čopar', '12345', 'FabPotato', './wuz_gut.png', NULL, NULL);
+INSERT INTO `users` (`id`, `country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `banner_pic_url`, `birthday`, `authentication_token`) VALUES
+(1, 1, 'Luka', 'Čopar', '12345', 'FabPotato', './images/twette.ico', '', NULL, NULL);
 
 --
--- Indeksi zavrženih tabel
+-- Indexes for dumped tables
 --
 
 --
--- Indeksi tabele `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -198,7 +201,7 @@ ALTER TABLE `comments`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeksi tabele `comments_tweets`
+-- Indexes for table `comments_tweets`
 --
 ALTER TABLE `comments_tweets`
   ADD PRIMARY KEY (`id`),
@@ -207,14 +210,14 @@ ALTER TABLE `comments_tweets`
   ADD KEY `comment_id` (`comment_id`);
 
 --
--- Indeksi tabele `countries`
+-- Indexes for table `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indeksi tabele `follows`
+-- Indexes for table `follows`
 --
 ALTER TABLE `follows`
   ADD PRIMARY KEY (`id`),
@@ -223,14 +226,14 @@ ALTER TABLE `follows`
   ADD KEY `follower_id` (`follower_id`);
 
 --
--- Indeksi tabele `hashtags`
+-- Indexes for table `hashtags`
 --
 ALTER TABLE `hashtags`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
 
 --
--- Indeksi tabele `hashtags_tweets`
+-- Indexes for table `hashtags_tweets`
 --
 ALTER TABLE `hashtags_tweets`
   ADD PRIMARY KEY (`id`),
@@ -239,7 +242,7 @@ ALTER TABLE `hashtags_tweets`
   ADD KEY `hashtag_id` (`hashtag_id`);
 
 --
--- Indeksi tabele `likes`
+-- Indexes for table `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
@@ -248,7 +251,7 @@ ALTER TABLE `likes`
   ADD KEY `tweet_id` (`tweet_id`);
 
 --
--- Indeksi tabele `messages`
+-- Indexes for table `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`),
@@ -257,7 +260,7 @@ ALTER TABLE `messages`
   ADD KEY `sent_id` (`sent_id`);
 
 --
--- Indeksi tabele `notifications`
+-- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`),
@@ -265,7 +268,7 @@ ALTER TABLE `notifications`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeksi tabele `retweets`
+-- Indexes for table `retweets`
 --
 ALTER TABLE `retweets`
   ADD PRIMARY KEY (`id`),
@@ -274,7 +277,7 @@ ALTER TABLE `retweets`
   ADD KEY `tweet_id` (`tweet_id`);
 
 --
--- Indeksi tabele `tweets`
+-- Indexes for table `tweets`
 --
 ALTER TABLE `tweets`
   ADD PRIMARY KEY (`id`),
@@ -282,7 +285,7 @@ ALTER TABLE `tweets`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeksi tabele `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -290,69 +293,82 @@ ALTER TABLE `users`
   ADD KEY `country_id` (`country_id`);
 
 --
--- AUTO_INCREMENT zavrženih tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT tabele `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `comments_tweets`
+-- AUTO_INCREMENT for table `comments_tweets`
 --
 ALTER TABLE `comments_tweets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `countries`
+-- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- AUTO_INCREMENT tabele `follows`
+-- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `hashtags`
+-- AUTO_INCREMENT for table `hashtags`
 --
 ALTER TABLE `hashtags`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `hashtags_tweets`
+-- AUTO_INCREMENT for table `hashtags_tweets`
 --
 ALTER TABLE `hashtags_tweets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `likes`
+-- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `messages`
+-- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `notifications`
+-- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `retweets`
+-- AUTO_INCREMENT for table `retweets`
 --
 ALTER TABLE `retweets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `tweets`
+-- AUTO_INCREMENT for table `tweets`
 --
 ALTER TABLE `tweets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT tabele `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
