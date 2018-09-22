@@ -14,7 +14,6 @@ if($row['name'] == $ussername && $row['password'] == $password){
                 
                   setcookie($cookie_login, $cookie_value,time() + (10*999999),"/");
                   header('Location: ../index.php');
-                  die();
             } 
 
         }else{
