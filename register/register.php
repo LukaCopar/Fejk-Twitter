@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <?php
     include_once './header.php';
@@ -11,57 +6,49 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>tweeter/register</title>
-          <script>
-        function checkPass()
-    var pass1 = document.getElementById('pass1');
-    var pass2 = document.getElementById('pass2');
-    var goodColor = "#66cc66";
-    var badColor = "#ff6666";
-    var mehColor = "#ffffff";
-    if(pass1.value == pass2.value && pass2.value == ""){
-       pass2.style.backgroundColor = mehColor;
-    }
-    else if(pass1.value == pass2.value){
-        pass2.style.backgroundColor = goodColor;
-        
-        
-    }
-    else{
-        pass2.style.backgroundColor = badColor;
-        
-    }
-    
-}  
-        
-        </script>
+         
     </head>
     <body>
          <div id="register">
         <form action="./input_user.php" method="post">
             
-            <input type="text" name="username" placeholder="username" required/><br><br>
-            <input type="text" name="name" placeholder="name" required/><br><br>
-            <input type="text" name="surname" placeholder="surname" required/><br><br>
-            <input type="date" name="birthday" placeholder="birthday" required/><br><br>
-            <input type="password" name="pass" id="pass1" placeholder="password" required required onkeyup="checkPass(); return false;"/><br><br>
-            <input type="password" name="pass2" id="pass2" placeholder="repeat password" required onkeyup="checkPass(); return false;"/><br><br>
-            <select name="razred">
-            
-                
-                <?php
-                    $query = "SELECT ime FROM `razredi`";
-                    $result = mysqli_query($link, $query);
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '<option value="'.$row['ime'].'" >'.$row['ime'].'</option>';
+           <div class="reg-input"><input type="text" name="username" placeholder="username" required/></div>
+           <div class="reg-input"><input type="text" name="name" placeholder="name" required/></div>
+           <div class="reg-input"> <input type="text" name="surname" placeholder="surname" required/></div>
+           <div class="reg-input"> <input type="email" name="e-mail" placeholder="e-mail" required/></div>
+           <div class="reg-input"> <input type="date" name="birthday" placeholder="birthday" required/></div>
+           <div class="reg-input"> <input type="password" name="pass" placeholder="password" required required /></div>
+           <div class="reg-input"> <input type="password" name="pass2" placeholder="repeat password" required /></div>
+           <?php
+           if(isset($_GET['id']) > 0){
+               echo '<script>alert("passwords do not match!")</script>';
+               
+           }
+           ?>
+           <select name="country">
+               <?php
+               
+              $ime = $pdo->query('SELECT * FROM countries');
+              foreach ($ime as $row){
+                        echo '<option value="'.$row['id'].'" >'.$row['name'].'</option>';
                        
                     }
-                ?>
-            </select><br>
-            <input type="submit" class="button" value="register"/>
+               
+               ?>
+               
+               
+           </select>
+           
+           
+           
+           
+           
+            <input type="submit" class="button-reg margin-top" style="margin-left: -10%; width: 130%;" value="register"/>
+            
         </form>
-             <div>
+             <div id="login-register">
                  you have an account?<br>
-            <button class="button" onclick="location.href='../login/login.php';">Log In</button>
+            <button class="button-reg" onclick="location.href='../login/login.php';">Log In</button>
             </div>
         </div>
     </body>

@@ -1,8 +1,32 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include_once '../connection/database.php';
+
+$name = $_POST['name'];
+$surname = $_POST['surname'];
+$ussername = $_POST['username'];
+$email = $_POST['e-mail'];
+$pass1 = $_POST['pass'];
+$pass2 = $_POST['pass2'];
+$county = $_POST['country']; 
+$birthday = $_POST['birthday'];
+echo $name. $surname. $ussername. $email. $pass1. $pass2. $county, $birthday;
+$profileurl = "asd";
+if($pass1 != $pass2){
+     header("Location: ./register.php?id=1");
+}
+
+        
+if(!empty($_POST['ussername']) && !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['e-mail'])  ){
+
+
+   
+   }
+
+   
+  $lol = $pdo->prepare("INSERT INTO `users`(`country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`) VALUES (?,?,?,?,?,?,?)");
+    $lol->execute([$county, $name, $surname, $pass1, $ussername, $profileurl, $birthday]);
+     header("Location: ../login/login.php");
+
+
 

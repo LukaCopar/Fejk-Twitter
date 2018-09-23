@@ -3,11 +3,19 @@
                 100%{background-color: #c9eaff;
                 }
             }
+                @keyframes buttons-reg{
+                100%{background-color: #006dbf;
+                     border-color: #006dbf;
+                     color: white;
+                     text-align: center;
+                }
+            }
              @keyframes buttons-up{
                 100%{background-color: #006dbf;
                      border-color: #006dbf;
                 }
             }
+             
             
             div{
                     display: block;
@@ -66,11 +74,12 @@
                 float: right;
             }
             
-            input{
+            input, select{
                 box-sizing: border-box;
-                font-size: 62.5%;
-                
-                
+                font-size: 14px;
+                height: 40px;
+                padding: 5px;
+                border: 0;
             }
             
             .button{
@@ -107,7 +116,6 @@
                 animation-duration: 0.5s;
                 
             }
-            
             
             
             #login{
@@ -260,6 +268,55 @@
                 border: 0;
                 
             }
+            
+            
+            #register{
+                padding: 10%;
+                width: 30%;
+                margin-left: 30%;
+                
+            }
+            
+            .button-reg{
+               cursor: pointer;
+                font-weight: bold;
+                color: rgb(29, 161, 242);
+                height: 30px;
+                width: 100%;
+                background-color: transparent;
+                border: solid 1px rgb(29, 161, 242);
+                border-radius: 400px;
+            }
+            .button-reg:hover{
+                animation: buttons-reg;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+            }
+            #login-register{
+                padding: 10px;
+                text-align: center;
+            }
+            input{
+                overflow: hidden;
+                border-bottom:1px solid #ccc;
+                outline: 0;
+            }
+            select{
+                width: 110%;
+                overflow: hidden;
+                border-bottom:1px solid #ccc;
+                outline: 0;
+                
+            }
+            input:focus{
+                border-bottom: solid 2px #006dbf;
+                transition: border-bottom 0.2s linear;
+            }
+            
+            .margin-top{
+                margin-top: 10px;
+            }
+            
             
 
             
