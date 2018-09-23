@@ -33,10 +33,27 @@ include_once ('./connection/cookie_check.php');
             <?php
             for($i=0; $i<5; $i++){
             echo ' <div class="tweet">';
-            echo ' this is post yes <br>';
-            echo '<img alt="picture here sry i no show" src="./images/twette.ico">';
+            echo ' <div class="tweet-profile-pic">';
+             echo '<img class="avatar-pic" alt="picture here sry i no show" src="./images/twette.ico">';
+             echo '  </div>';
+            
+            echo ' <div class="profile-info">';
+             echo '<span class="tweet-username">Luka Čopar</span> @LukaCopar';
+             echo '  </div>';
+            
+            echo ' <div class="content">';
+             echo 'kr en tekst pa take stvari';
+             echo '  </div>';
+            
+            echo ' <div class="tweet-pic">';
+             echo '<img alt="picture here sry i no show" src="./images/twette.ico">';
+             echo '  </div>';
+            
+            echo ' <div class="tweet-bottom">';
+             echo '<button class="tweet-icons-bottom" type="button"><div>Like</div></button>';
+             echo '</div>';
                 
-            echo '  </div>';
+            echo '</div>';
             }
             ?>
         </div>

@@ -11,8 +11,12 @@
             
             div{
                     display: block;
+                    
             }
-            
+            img{
+                border: 0;
+                border-radius: 2%;
+            }
             #log_out_btn{
                 color: rgb(29, 161, 242);
                 font-weight: bold;
@@ -139,16 +143,15 @@
                 width: 33%;
                 height: 100vw;
             }
-            #sredinski-main{
-                padding-top: 2vw; 
-                overflow: hidden;
+            #leu-profile{
+                min-height: 10vw;
+                float: right;
                 text-align: center;
-                float: left;
-                margin-left: 5px;
-                width: 33%;
-                height: 100vw;
-                margin-top: 60px;
+                width: 60%;
+                background-color: #ffffff;
             }
+            
+            
             #desn-main{
                 overflow: hidden;
                 padding: 3vw;
@@ -161,6 +164,17 @@
                 height: 100vw;
             }
             
+            
+            #sredinski-main{
+                padding-top: 2vw; 
+                overflow: hidden;
+                text-align: center;
+                float: left;
+                margin-left: 5px;
+                width: 33%;
+                height: 100vw;
+                margin-top: 60px;
+            }
             .tweet{
                 padding: 9px 12px;
                 border-bottom: 1px #e6ecf0 solid;
@@ -176,14 +190,78 @@
                 transition: background .1s linear;
                 
             }
-            
-            #leu-profile{
-                min-height: 10vw;
-                float: right;
-                text-align: center;
-                width: 40%;
-                background-color: #ffffff;
+            .tweet-profile-pic{
+                width: 48px;
+                min-height: 100%;
+                border-radius: 50%;
+                overflow: hidden;
+                float: left;
+                
             }
+            .avatar-pic{
+                width: 50px;
+                height: 50px;
+                
+            }
+            .profile-info{
+                padding: 5px;
+                float: right;
+                width:90%;
+                height: 14px;
+                text-align: left;
+                color: #657786;
+                font-size: 14px;
+            }
+            .content{
+                font-size: 15px;
+                padding: 5px;
+                text-align: left;
+                margin-top: 10px;
+                overflow: hidden;
+                width: 90%;
+                float: right;
+                min-height: 40px;
+                
+            }
+            .tweet-username{
+                color: black;
+                font-weight: 700;
+                text-decoration: underline;
+                
+            }
+            .tweet-pic{
+                float: right;
+                overflow: hidden;
+                min-width: 90%;
+                
+            }
+            .tweet-bottom{
+                text-align: left;
+                padding-left: 50px;
+                overflow: hidden;
+                min-width: 90%;
+                max-width: 100%;
+            }
+            .tweet-icons-bottom{
+                cursor: pointer;
+                background-color: transparent;
+                border: 0;
+                
+            }
+            .tweet-icons-bottom:hover{
+               color: #1da1f2;
+                transition: color .1s linear;
+                
+            }
+            .tweet-icons-bottom-div{
+                border: solid 1px;
+                overflow: hidden;
+                max-width: 18px;
+                border: 0;
+                
+            }
+            
+
             
             
             
