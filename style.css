@@ -350,6 +350,7 @@
             display: none;
             }
             .input-file{
+                
                 text-align: center;
                cursor: pointer;
                 font-weight: bold;
@@ -360,6 +361,20 @@
                 border: solid 1px rgb(29, 161, 242);
                 border-radius: 400px;
                 
+            }
+            .input-file-reg{
+                padding-top: 5px;
+                color: #ccc;
+                height: 40px;
+                overflow: hidden;
+                outline: 0;
+                
+            }
+            .input-file-reg:hover{
+                color: #aaa;
+                cursor: pointer;
+                border: 1px #ccc solid;
+                border-radius: 10px;
             }
             .input-file:hover{
               background-color: #c9eaff;
@@ -435,6 +450,7 @@
                 outline: 0;
                 
             }
+            
             input2:focus{
                 border-bottom: solid 2px #006dbf;
                 transition: border-bottom 0.2s linear;

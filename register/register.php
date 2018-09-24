@@ -10,7 +10,7 @@
     </head>
     <body>
          <div id="register">
-        <form action="./input_user.php" method="post">
+        <form action="./input_user.php" method="post" enctype="multipart/form-data">
             
             <div class="reg-input"><input class="input2" type="text" name="username" placeholder="username" required/></div>
            <div class="reg-input"> <input class="input2" type="text" name="name" placeholder="name" required/></div>
@@ -19,6 +19,7 @@
            <div class="reg-input"> <input class="input2" type="date" name="birthday" placeholder="birthday" required/></div>
            <div class="reg-input"> <input class="input2" type="password" name="pass" placeholder="password" required required /></div>
            <div class="reg-input"> <input class="input2" type="password" name="pass2" placeholder="repeat password" required /></div>
+           <label class="input-file-reg"> add a profile picture<input class="input2" type="file" name="file" /></label>
            <?php
            if(isset($_GET['id']) > 0){
                echo '<script>alert("passwords do not match!")</script>';
