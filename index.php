@@ -18,12 +18,24 @@ include_once ('./connection/cookie_check.php');
         </style>
     </head>
     <body>
-        
+        <?php
+        $lol = $_COOKIE[$cookie_login];
+        $query = 'SELECT * FROM users WHERE username = "'.$_COOKIE[$cookie_login].'"';
+        $stmt = $pdo->query($query);
+       
+        ?>
         <div id="leu-main">
+          
             <div id="leu-profile">
-                profile pa tu
-                
-                
+                <div id="banner-pic"></div>
+                <div class="profile-profile-pic">
+                    <img class="avatar-pic" src="<?php foreach ($stmt as $row){
+        echo  $row['profile_pic_URL'];}?>">
+                </div>
+                <div class="profile2-info">
+                    <span class="tweet-username"><?php echo $_COOKIE[$cookie_login];?></span>
+                <?php echo "@".$row['name'].$row['surname']; ?>
+                </div>
             </div>
             
         </div>
@@ -32,14 +44,14 @@ include_once ('./connection/cookie_check.php');
         <div id="sredinski-main">
             <button type="button" class="tweet-btn" onclick="location.href='./tweet/tweet_a_tweet.php';"> TWEET</button>
             <?php
-            $stmt = $pdo->query('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id ORDER BY t.id DESC');
+           $stmt = $pdo->query('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id ORDER BY t.id DESC');
            
             
             
             foreach($stmt as  $row){
             echo ' <div class="tweet">';
             echo ' <div class="tweet-profile-pic">';
-             echo '<img class="avatar-pic" alt="picture here sry i no show" src="./images/twette.ico">';
+             echo '<img class="avatar-pic" src="'.$row['profile_pic_URL'].'">';
              echo '  </div>';
             
             echo ' <div class="profile-info">';
@@ -51,7 +63,7 @@ include_once ('./connection/cookie_check.php');
              echo '  </div>';
             
             echo ' <div class="tweet-pic">';
-             echo '<img alt="picture here sry i no show" src="'.$row['profile_pic_URL'].'">';
+             echo '<img class="tweet-image" src="'.$row['picture'].'">';
              echo '  </div>';
             
             echo ' <div class="tweet-bottom">';

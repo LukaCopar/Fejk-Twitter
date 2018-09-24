@@ -15,7 +15,7 @@ include_once('../connection/database.php');
         <?php
 if(isset($_COOKIE[$cookie_login]) > 0){
     ?>
-        <div class="header2">   
+        <div class="header3">   
             <div id="leu">
                 hellos  
                 

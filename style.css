@@ -30,7 +30,7 @@
                 color: rgb(29, 161, 242);
                 font-weight: bold;
                 height: 30px;
-                width: 10%;
+                width: 15%;
                 cursor: pointer;
                 background-color: transparent;
                 border: solid 1px rgb(29, 161, 242);
@@ -45,6 +45,20 @@
             }
             
            
+            .header3{
+                background-color: white;
+                position: relative;
+                height: 50px;
+                width: 100%;
+                overflow: hidden;    
+                border-bottom: 1px solid #eef;
+               background: linear-gradient(bottom, #eee  0%, #fff 10%);
+		background: -ms-linear-gradient(bottom, #eee  0%,#fff 10%);
+		background: -moz-linear-gradient(bottom, #eee  0%,#fff 10%);
+		background: -webkit-linear-gradient(bottom, #eee  0%, #fff 10%);
+                
+                
+            } 
             .header2{
                 background-color: white;
                 position: fixed;
@@ -150,15 +164,39 @@
                 margin-top: 60px;
                 margin-left: 5px;
                 float: left;
-                width: 33%;
+                width: 29%;
                 height: 100vw;
             }
             #leu-profile{
-                min-height: 10vw;
+                min-height: 20vw;
                 float: right;
                 text-align: center;
-                width: 60%;
+                width: 80%;
                 background-color: #ffffff;
+            }
+            #banner-pic{
+                height: 100px;
+                min-width: 100%;
+                margin-bottom: 5px;
+                background-color: black;
+            }
+            .profile-profile-pic{
+                margin: 5px;
+                max-width: 19%;
+                max-height: 20%;
+                border-radius: 50%;
+                overflow: hidden;
+                float: left;
+                
+            }
+            .profile2-info{
+                padding: 5px;
+                float: right;
+                width:78%;
+                height: 14px;
+                text-align: left;
+                color: #657786;
+                font-size: 14px;
             }
             
             
@@ -181,7 +219,7 @@
                 text-align: center;
                 float: left;
                 margin-left: 5px;
-                width: 33%;
+                width: 37%;
                 height: 100vw;
                 margin-top: 60px;
             }
@@ -208,7 +246,6 @@
                 width: 100%;
                 background-color: white;
                 min-height: 51px;
-                position: relative;
                 
             }
             .tweet:hover{
@@ -217,6 +254,7 @@
                 
             }
             .tweet-profile-pic{
+                
                 width: 48px;
                 min-height: 100%;
                 border-radius: 50%;
@@ -308,8 +346,32 @@
                 margin-left: 22%;
                 background-color: #e5e5e5; 
             }
-            
-            
+            input[type="file"] {
+            display: none;
+            }
+            .input-file{
+                text-align: center;
+               cursor: pointer;
+                font-weight: bold;
+                color: rgb(29, 161, 242);
+                height: 30px;
+                width: 30%;
+                background-color: transparent;
+                border: solid 1px rgb(29, 161, 242);
+                border-radius: 400px;
+                
+            }
+            .input-file:hover{
+              background-color: #c9eaff;
+              border: 0;
+              transition: background-color 0.2s linear;
+                
+            }
+            .tweet-image{
+                max-height: 100%;
+                max-width: 100%;
+                
+            }
             
             .tweet-input{
                 width: 100%;
