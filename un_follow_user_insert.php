@@ -15,7 +15,7 @@ $followID = $_GET['fID'];
 
 
 
-$query = "INSERT INTO `follows`(`user_id`, `follower_id`) VALUES (?,?)";
+$query = "DELETE FROM `follows` WHERE (user_id = ?) AND (follower_id = ?)";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$userID, $followID]);
 

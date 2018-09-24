@@ -44,7 +44,7 @@ $userID = $jau;
 			        $query = "INSERT INTO `tweets`(`user_id`, `content`, picture) VALUES (?,?,?)";
                                 $stmt = $pdo ->prepare($query);
                                 $stmt -> execute([$userID, $content, $url]);
-			        echo $url;
+			       // echo $url;
 			    } 
 
 			    else 
@@ -68,6 +68,6 @@ else
 }
 
 
-header('Location: ../index.php');
+header('Location: ../index.php?users=0');
 
 

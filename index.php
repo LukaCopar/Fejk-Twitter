@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include_once('./header.php');
+    include_once('./header.php');
+include_once './connection/database.php';
 include_once ('./connection/cookie_check.php');
 ?>
 <html>
@@ -44,8 +45,16 @@ include_once ('./connection/cookie_check.php');
         <div id="sredinski-main">
             <button type="button" class="tweet-btn" onclick="location.href='./tweet/tweet_a_tweet.php';"> TWEET</button>
             <?php
-           $stmt = $pdo->query('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id ORDER BY t.id DESC');
-           
+            $cist_blizu1 = $_COOKIE[$cookie_login];
+            $query4 = "SELECT id FROM users WHERE username = ?";
+            $stmt4 = $pdo->prepare($query4);
+            $stmt4->execute([$cist_blizu1]);
+            
+            foreach ($stmt4 as $row69 ){
+            $cist_blizu = $row69['id'];
+            }
+           $stmt = $pdo->prepare('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id WHERE f.user_id = ? ORDER BY t.id DESC');
+           $stmt -> execute([$cist_blizu]);
             
             
             foreach($stmt as  $row){
