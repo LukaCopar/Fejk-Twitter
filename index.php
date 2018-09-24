@@ -44,7 +44,7 @@ include_once ('./connection/cookie_check.php');
         <div id="sredinski-main">
             <button type="button" class="tweet-btn" onclick="location.href='./tweet/tweet_a_tweet.php';"> TWEET</button>
             <?php
-           $stmt = $pdo->query('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id ORDER BY t.id DESC');
+           $stmt = $pdo->query('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id ORDER BY t.id DESC');
            
             
             
@@ -67,7 +67,7 @@ include_once ('./connection/cookie_check.php');
              echo '  </div>';
             
             echo ' <div class="tweet-bottom">';
-             echo '<button class="tweet-icons-bottom" type="button"><div>Like</div></button>';
+             echo '<button class="tweet-icons-bottom" type="button" ><div>Like</div></button>';
              echo '</div>';
                 
             echo '</div>';

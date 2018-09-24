@@ -35,10 +35,11 @@
                 background-color: transparent;
                 border: solid 1px rgb(29, 161, 242);
                 border-radius: 400px;
+                outline-width: 0;
                 
             }
             #log_out_btn:hover{
-                
+                outline-width: 0;
                 animation: buttons;
                 animation-duration: 0.5s;
                 animation-fill-mode: forwards;
@@ -132,7 +133,42 @@
                 animation-duration: 0.5s;
                 
             }
+            .button-follow{
+                cursor: pointer;
+                font-weight: bold;
+                color: rgb(29, 161, 242);
+                height: 30px;
+                width: 10%;
+                background-color: transparent;
+                border: solid 1px rgb(29, 161, 242);
+                border-radius: 400px;
+                float: right;
+                
+            }
+            .button-follow:hover{
+                 animation: buttons-up;
+                animation-fill-mode: forwards;
+                animation-duration: 0.5s;
+                
+            }
             
+            .user-foolow{
+                float: right;
+                margin-top: 40px;
+                padding: 9px 12px;
+                border-bottom: 1px #e6ecf0 solid;
+                cursor: pointer;
+                width: 100%;
+                background-color: white;
+                min-height: 51px;
+                
+            }
+            
+            .user-foolow:hover{
+                background-color: #f5f8fa;
+                transition: background .1s linear;
+                
+            }
             
             #login{
                 margin-top: 1vw;
@@ -156,7 +192,7 @@
                 -webkit-text-size-adjust: 100%;
             }
             
-            #leu-main{
+            #leu-main{  
                 overflow: hidden;
                 padding: 3vw;
                 padding-top: 2vw; 
