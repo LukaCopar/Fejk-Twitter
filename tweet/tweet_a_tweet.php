@@ -10,15 +10,15 @@ and open the template in the editor.
         include_once './header.php';
         ?>
         <meta charset="UTF-8">
-        <title></title>
+        <title>tweetr/tweet</title>
     </head>
     <body>
         
          <div id="tweet-a-tweet">
-        <form action="./input_user.php" method="post">
-            
-           <div><input class="tweet-input" type="text" name="content" placeholder="What do you want to tweet!"/></div>
-            <input type="submit" class="button-tweet margin-top" style="margin-left: -10%; width: 130%;" value="register"/>
+             <form action="./tweet_the_tweet.php" method="post">
+                 
+            <div><textarea class="tweet-input"  type="text" name="content" placeholder="What do you want to tweet!"></textarea></div>
+            <input type="submit"  class="button-tweet margin-top" style="margin-left: -10%; width: 130%;" value="TWEET! "/>
             
         </form>
             

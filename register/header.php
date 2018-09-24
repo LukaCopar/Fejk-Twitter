@@ -13,7 +13,7 @@ include_once('../connection/database.php');
     </head>
     <body>
         <?php
-if(isset($_COOKIE[$cookie_login]) > 0){
+if(!isset($_COOKIE[$cookie_login]) > 0){
     ?>
         <div class="header2">   
             <div id="leu">

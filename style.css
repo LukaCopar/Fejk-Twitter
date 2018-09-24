@@ -10,6 +10,7 @@
                      text-align: center;
                 }
             }
+            
              @keyframes buttons-up{
                 100%{background-color: #006dbf;
                      border-color: #006dbf;
@@ -30,6 +31,7 @@
                 font-weight: bold;
                 height: 30px;
                 width: 10%;
+                cursor: pointer;
                 background-color: transparent;
                 border: solid 1px rgb(29, 161, 242);
                 border-radius: 400px;
@@ -183,6 +185,22 @@
                 height: 100vw;
                 margin-top: 60px;
             }
+            .tweet-btn{
+                width: 100%;
+                margin: 0;
+                height: 4vw;
+                background-color: #ccd6dd;
+                border: 1px solid #eee;
+                border-top-right-radius: 10px; 
+                border-top-left-radius: 10px;
+                font-weight: 800;
+                color: white;
+            }
+            .tweet-btn:hover{
+                background-color: #b7c1c8;
+                cursor: pointer;
+                transition: background-color .2s linear;               
+            }
             .tweet{
                 padding: 9px 12px;
                 border-bottom: 1px #e6ecf0 solid;
@@ -280,30 +298,49 @@
                 
             }
             #tweet-a-tweet{
+                margin-top: 10%;
                 padding: 10%;
-                width: 40%;
-                margin-left: 25%;
+                width: 50%;
+                height: 30%;
+                border: 1px solid #eee;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-left: 22%;
+                background-color: #e5e5e5; 
             }
+            
+            
             
             .tweet-input{
                 width: 100%;
-                overflow: hidden;
+                height: 100px; 
+                max-height: 200px;
+                overflow: auto;
+                overflow-wrap: break-word;
                 border:1px solid #ccc;
                 border-radius: 10px;
                 outline: 0;
-            }
-            .button-tweet{
-                cursor: pointer;
-                font-weight: bold;
-                color: rgb(29, 161, 242);
-                height: 30px;
-                width: 100%;
-                background-color: transparent;
-                border: solid 1px rgb(29, 161, 242);
-                border-radius: 400px;
                 
             }
             
+        
+            .button-tweet{
+                float: right;
+                cursor: pointer;
+                font-weight: bold;
+                color: #f5f8fa;
+                height: 30px;
+                max-width: 20%;
+                background-color: #ccd6dd;
+                border: solid 1px #ccd6dd;
+                border-radius: 400px;
+                
+            }
+            .button-tweet:hover{
+                background-color: #b7c1c8;
+                border: 0;
+                transition: background-color .1s linear;
+            }
             .button-reg{
                cursor: pointer;
                 font-weight: bold;
@@ -336,7 +373,7 @@
                 outline: 0;
                 
             }
-            input:focus{
+            input2:focus{
                 border-bottom: solid 2px #006dbf;
                 transition: border-bottom 0.2s linear;
                 outline: 0;

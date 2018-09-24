@@ -30,8 +30,13 @@ include_once ('./connection/cookie_check.php');
         
         
         <div id="sredinski-main">
+            <button type="button" class="tweet-btn" onclick="location.href='./tweet/tweet_a_tweet.php';"> TWEET</button>
             <?php
-            for($i=0; $i<5; $i++){
+            $stmt = $pdo->query('SELECT * FROM tweets');
+           
+            
+            
+            foreach($stmt as  $row){
             echo ' <div class="tweet">';
             echo ' <div class="tweet-profile-pic">';
              echo '<img class="avatar-pic" alt="picture here sry i no show" src="./images/twette.ico">';
