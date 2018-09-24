@@ -32,7 +32,7 @@ include_once ('./connection/cookie_check.php');
         <div id="sredinski-main">
             <button type="button" class="tweet-btn" onclick="location.href='./tweet/tweet_a_tweet.php';"> TWEET</button>
             <?php
-            $stmt = $pdo->query('SELECT * FROM tweets');
+            $stmt = $pdo->query('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id ORDER BY t.id DESC');
            
             
             
@@ -43,15 +43,15 @@ include_once ('./connection/cookie_check.php');
              echo '  </div>';
             
             echo ' <div class="profile-info">';
-             echo '<span class="tweet-username">Luka Čopar</span> @LukaCopar';
+             echo '<span class="tweet-username">'.$row['username'].'</span> @'.$row['name'], $row['surname'];
              echo '  </div>';
             
             echo ' <div class="content">';
-             echo 'kr en tekst pa take stvari';
+             echo $row['content'];
              echo '  </div>';
             
             echo ' <div class="tweet-pic">';
-             echo '<img alt="picture here sry i no show" src="./images/twette.ico">';
+             echo '<img alt="picture here sry i no show" src="'.$row['profile_pic_URL'].'">';
              echo '  </div>';
             
             echo ' <div class="tweet-bottom">';
