@@ -15,7 +15,7 @@ $password = $_POST['pass'];
                 $cookie_value = $ussername;
                 
                   setcookie($cookie_login, $cookie_value,time() + (10*999999),"/");
-                  header('Location: ../index.php');
+                  header('Location: ../index.php?users=0');
                   die();
             } 
 

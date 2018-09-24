@@ -25,6 +25,19 @@ include_once ('./connection/cookie_check.php');
                 
             </div>
             <div id="desn">
+                <?php
+                $neki = $_GET['users'];
+                if($neki == 1){
+                 ?>
+                    <button type="button" id="log_out_btn" onclick="location.href='./index.php?users=o';">main page</button>
+                <?php
+                }else{
+                ?>
+                    <button type="button" id="log_out_btn" onclick="location.href='./users.php?users=1';">users</button>
+                <?php
+                }
+                ?>
+                
                 <button type="button" id="log_out_btn" onclick="location.href='./LogOut.php';">Log Out</button>
             </div>
             
