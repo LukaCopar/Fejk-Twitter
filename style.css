@@ -77,9 +77,9 @@
             input, select{
                 box-sizing: border-box;
                 font-size: 14px;
-                height: 40px;
                 padding: 5px;
                 border: 0;
+                outline: 0; 
             }
             
             .button{
@@ -249,18 +249,21 @@
                 overflow: hidden;
                 min-width: 90%;
                 max-width: 100%;
+                outline: 0;
             }
             .tweet-icons-bottom{
                 cursor: pointer;
                 background-color: transparent;
                 border: 0;
+                outline-width: 0;
                 
             }
             .tweet-icons-bottom:hover{
                color: #1da1f2;
                 transition: color .1s linear;
-                
+                outline-width: 0; 
             }
+            
             .tweet-icons-bottom-div{
                 border: solid 1px;
                 overflow: hidden;
@@ -274,6 +277,30 @@
                 padding: 10%;
                 width: 30%;
                 margin-left: 30%;
+                
+            }
+            #tweet-a-tweet{
+                padding: 10%;
+                width: 40%;
+                margin-left: 25%;
+            }
+            
+            .tweet-input{
+                width: 100%;
+                overflow: hidden;
+                border:1px solid #ccc;
+                border-radius: 10px;
+                outline: 0;
+            }
+            .button-tweet{
+                cursor: pointer;
+                font-weight: bold;
+                color: rgb(29, 161, 242);
+                height: 30px;
+                width: 100%;
+                background-color: transparent;
+                border: solid 1px rgb(29, 161, 242);
+                border-radius: 400px;
                 
             }
             
@@ -296,7 +323,8 @@
                 padding: 10px;
                 text-align: center;
             }
-            input{
+            input2{
+                height: 40px;
                 overflow: hidden;
                 border-bottom:1px solid #ccc;
                 outline: 0;
@@ -311,6 +339,7 @@
             input:focus{
                 border-bottom: solid 2px #006dbf;
                 transition: border-bottom 0.2s linear;
+                outline: 0;
             }
             
             .margin-top{

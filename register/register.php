@@ -12,13 +12,13 @@
          <div id="register">
         <form action="./input_user.php" method="post">
             
-           <div class="reg-input"><input type="text" name="username" placeholder="username" required/></div>
-           <div class="reg-input"><input type="text" name="name" placeholder="name" required/></div>
-           <div class="reg-input"> <input type="text" name="surname" placeholder="surname" required/></div>
-           <div class="reg-input"> <input type="email" name="e-mail" placeholder="e-mail" required/></div>
-           <div class="reg-input"> <input type="date" name="birthday" placeholder="birthday" required/></div>
-           <div class="reg-input"> <input type="password" name="pass" placeholder="password" required required /></div>
-           <div class="reg-input"> <input type="password" name="pass2" placeholder="repeat password" required /></div>
+            <div class="reg-input"><input class="input2" type="text" name="username" placeholder="username" required/></div>
+           <div class="reg-input"> <input class="input2" type="text" name="name" placeholder="name" required/></div>
+           <div class="reg-input"> <input class="input2" type="text" name="surname" placeholder="surname" required/></div>
+           <div class="reg-input"> <input class="input2" type="email" name="e-mail" placeholder="e-mail" required/></div>
+           <div class="reg-input"> <input class="input2" type="date" name="birthday" placeholder="birthday" required/></div>
+           <div class="reg-input"> <input class="input2" type="password" name="pass" placeholder="password" required required /></div>
+           <div class="reg-input"> <input class="input2" type="password" name="pass2" placeholder="repeat password" required /></div>
            <?php
            if(isset($_GET['id']) > 0){
                echo '<script>alert("passwords do not match!")</script>';
