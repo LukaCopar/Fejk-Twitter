@@ -14,7 +14,7 @@ $followID = $_GET['fID'];
 //echo $followID, $userID;
 
 
-
+//delete follow from database
 $query = "DELETE FROM `follows` WHERE (user_id = ?) AND (follower_id = ?)";
 $stmt = $pdo->prepare($query);
 $stmt->execute([$userID, $followID]);

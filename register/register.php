@@ -21,6 +21,7 @@
            <div class="reg-input"> <input class="input2" type="password" name="pass2" placeholder="repeat password" required /></div>
            <label class="input-file-reg"> add a profile picture<input class="input2" type="file" name="file" /></label>
            <?php
+           
            if(isset($_GET['id']) > 0){
                echo '<script>alert("passwords do not match!")</script>';
                
