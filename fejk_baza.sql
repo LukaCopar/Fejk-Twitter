@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2018 at 02:13 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Sep 25, 2018 at 08:16 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -76,6 +76,21 @@ CREATE TABLE `follows` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `follower_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `follows`
+--
+
+INSERT INTO `follows` (`id`, `user_id`, `follower_id`) VALUES
+(31, 3, 5),
+(29, 6, 5),
+(28, 6, 2),
+(30, 2, 6),
+(26, 2, 1),
+(24, 3, 2),
+(21, 6, 1),
+(23, 3, 1),
+(32, 3, 6);
 
 -- --------------------------------------------------------
 
@@ -159,8 +174,24 @@ CREATE TABLE `retweets` (
 CREATE TABLE `tweets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `content` text NOT NULL
+  `content` text NOT NULL,
+  `picture` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tweets`
+--
+
+INSERT INTO `tweets` (`id`, `user_id`, `content`, `picture`) VALUES
+(1, 3, 'Luka JE ok ', ''),
+(3, 3, 'tweet st 2', ''),
+(4, 3, 'tweet st 3', ''),
+(5, 1, 'jaz sem gasper', ''),
+(6, 2, 'jzjfzufzuzuf', ''),
+(12, 3, 'test img', 'images\\img8.jpg'),
+(8, 5, 'i is fagot big', ''),
+(13, 3, 'testna slika 3', 'images\\img9.jpg'),
+(14, 6, 'fghfgh', 'images\\img8.jpg');
 
 -- --------------------------------------------------------
 
@@ -176,7 +207,6 @@ CREATE TABLE `users` (
   `password` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
   `username` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
   `profile_pic_URL` mediumtext COLLATE utf8_slovenian_ci NOT NULL,
-  `banner_pic_url` text COLLATE utf8_slovenian_ci NOT NULL,
   `birthday` date DEFAULT NULL,
   `authentication_token` mediumtext COLLATE utf8_slovenian_ci
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
@@ -185,8 +215,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `banner_pic_url`, `birthday`, `authentication_token`) VALUES
-(1, 1, 'Luka', 'Čopar', '12345', 'FabPotato', './images/twette.ico', '', NULL, NULL);
+INSERT INTO `users` (`id`, `country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`, `authentication_token`) VALUES
+(1, 1, 'Luka', 'Čopar', '12345', 'FabPotato', 'images/default-user.ico', NULL, NULL),
+(2, 1, 'Gasper', 'Irman', '1234', 'gapi0210', 'images/default-user.ico', '2000-10-01', NULL),
+(3, 1, 'Luka', 'Čopar', '', 'Luka_Coparr', 'images\\img10.jpg', '2000-02-08', NULL),
+(5, 1, 'fagot', 'oni', '123', 'fagotoni', 'images/default-user.ico', '1969-04-20', NULL),
+(6, 1, 'test', 'test', '123', 'test', 'images\\img8.jpg', '2222-02-22', NULL);
 
 --
 -- Indexes for dumped tables
@@ -318,7 +352,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `hashtags`
@@ -360,13 +394,13 @@ ALTER TABLE `retweets`
 -- AUTO_INCREMENT for table `tweets`
 --
 ALTER TABLE `tweets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
