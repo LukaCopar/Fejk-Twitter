@@ -1,9 +1,16 @@
 <?php
 include_once '../connection/database.php';
 
-
+if(isset($_POST['first_name']) && !isset($_POST['pass']) > 0){
 $ussername = $_POST['first_name'];
 $password = $_POST['pass'];
+}else{
+    $ussername = $_GET['first_name'];
+$password = $_GET['pass'];
+    
+}
+
+
 
 
 

@@ -10,8 +10,15 @@ $pass1 = $_POST['pass'];
 $pass2 = $_POST['pass2'];
 $county = $_POST['country']; 
 $birthday = $_POST['birthday'];
+$token = $_POST['token'];
 echo $name. $surname. $ussername. $email. $pass1. $pass2. $county, $birthday;
-$profileurl = "asd";
+if(isset($_POST['googleimg']) > 0){
+$profileurl = $_POST['googleimg'];
+}else{
+    $profileurl = "images/default-user.ico";
+    
+}
+
 
 if($pass1 != $pass2){
      header("Location: ./register.php?id=1");
@@ -28,9 +35,7 @@ if(!empty($name) && !empty($surname) && !empty($pass1) && !empty($email)  ){
 	$fileName = basename($_FILES['file']['name']);
 
 
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
-    if($check !== false) 
-    {
+   
         //echo "File is an image - " . $check["mime"] . ".";
         //OK
         if(in_array($fileType, $allowedFileTypes))
@@ -49,8 +54,8 @@ if(!empty($name) && !empty($surname) && !empty($pass1) && !empty($email)  ){
 	        	if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) 
 	        	{
 			        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-			        $lol = $pdo->prepare("INSERT INTO `users`(`country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`) VALUES (?,?,?,?,?,?,?)");
-    $lol->execute([$county, $name, $surname, $pass1, $ussername, $url, $birthday]);
+			        $lol = $pdo->prepare("INSERT INTO `users`(`country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`, `authentication_token) VALUES (?,?,?,?,?,?,?,?)");
+                                $lol->execute([$county, $name, $surname, $pass1, $ussername, $url, $birthday, $token]);
 			        echo $url;
 			    } 
 
@@ -68,19 +73,16 @@ if(!empty($name) && !empty($surname) && !empty($pass1) && !empty($email)  ){
         echo "File is not an image.";
         //NOT OK
     }
+}else
+    header("Location: ./register.php");
 }
-else
-{
-	echo "Choose a file pls";
-}
+
     
-$lol = $pdo->prepare("INSERT INTO `users`(`country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`) VALUES (?,?,?,?,?,?,?)");
-    $lol->execute([$county, $name, $surname, $pass1, $ussername, $profileurl, $birthday]);
+$lol = $pdo->prepare("INSERT INTO `users`(`country_id`, `name`, `surname`, `password`, `username`, `profile_pic_URL`, `birthday`, authentication_token) VALUES (?,?,?,?,?,?,?,?)");
+                                $lol->execute([$county, $name, $surname, $pass1, $ussername, $profileurl, $birthday, $token]);
      header("Location: ../login/login.php");
 
    
-   }else
-    header("Location: ./register.php");
-}
+   
    
    

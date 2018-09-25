@@ -11,7 +11,11 @@ include_once('./header.php');
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        
+        <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="736730603166-pkb2t8rimb1a4k7jbcoo0sh1h9asugq0.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    
     
         </head>
     <body>
@@ -33,12 +37,46 @@ include_once('./header.php');
 
         ?>
         </form>
+            <div class="g-signin2" data-onsuccess="onSignIn" onclick="wait" data-theme="dark"></div>
+                <script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  
+    
+        signOut();
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId());
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
             
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+        
+        
+        
+        var url = "http://localhost/Fejk-Twitter/login/google_login.php?name="+profile.getGivenName()+"&URL="+profile.getImageUrl()+"&email="+profile.getEmail()+"&id="+profile.getId()+"&fullname="+profile.getName();
+  
+        window.location.href = url;};
+      
+    </script>
             
         
         </div>
         <?php
-       // include_once '../footer.php';
+       
+        
+        
+        
         ?>
     </body>
 </html>

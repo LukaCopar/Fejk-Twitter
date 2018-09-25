@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$db   = 'fejk_baza';
-$user = 'root';
-$pass = '';
+$db   = 'luka';
+$user = 'bazaaa';
+$pass = 'copar1234';
 $charset = 'utf8';
 
 $cookie_login = "login_cookie";
