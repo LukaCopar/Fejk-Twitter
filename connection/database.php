@@ -6,6 +6,7 @@ $pass = '';
 $charset = 'utf8';
 
 $cookie_login = "login_cookie";
+$cookie_value1;
 
 $salt = "lajsdfsnla8954z89I()&";
 

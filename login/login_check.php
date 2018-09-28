@@ -19,7 +19,7 @@ $password = $_GET['pass'];
    if($nevemvec == 1){
             if(!isset($_COOKIE[$cookie_login])>0){
                 $cookie_value = $ussername;
-                
+                $cookie_value1 = $cookie_value;
                   setcookie($cookie_login, $cookie_value,time() + (10*999999),"/");
                   header('Location: ../index.php?users=0');
                   die();
@@ -28,6 +28,6 @@ $password = $_GET['pass'];
         }else{
               
               
-            header('Location: ./login.php?id=1');
+            header('Location: login/login.php?id=1');
         }
         
