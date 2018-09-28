@@ -64,6 +64,10 @@ $userID = $jau;
 }
 else
 {
+    
+   $query = "INSERT INTO `tweets`(`user_id`, `content`) VALUES (?,?)";
+                                $stmt = $pdo ->prepare($query);
+                                $stmt -> execute([$userID, $content]);
 	echo "Choose a file pls";
 }
 

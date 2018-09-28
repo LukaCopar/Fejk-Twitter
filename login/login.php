@@ -36,9 +36,13 @@ include_once('./header.php');
         }
 
         ?>
+                    
+
         </form>
+            <?php
+            /*
             <div class="g-signin2" data-onsuccess="onSignIn" onclick="wait" data-theme="dark"></div>
-                <script>
+               <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -72,9 +76,8 @@ include_once('./header.php');
             
         
         </div>
-        <?php
+        */
        
-        
         
         
         ?>

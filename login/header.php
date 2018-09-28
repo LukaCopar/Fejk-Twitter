@@ -21,7 +21,7 @@ if(isset($_COOKIE[$cookie_login])>0){
                 
             </div>
             <div id="desn">
-                <button type="button" id="log_out_btn" onclick="location.href='./LogOut.php';">Log Out</button>
+                <button type="button" id="log_out_btn" onclick="location.href='../LogOut.php';">Log Out</button>
             </div>
             
             
