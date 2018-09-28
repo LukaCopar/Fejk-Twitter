@@ -53,8 +53,8 @@ include_once ('./connection/cookie_check.php');
             foreach ($stmt4 as $row69 ){
             $cist_blizu = $row69['id'];
             }
-           $stmt = $pdo->prepare('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id WHERE f.user_id = ? ORDER BY t.id DESC');
-           $stmt -> execute([$cist_blizu]);
+           $stmt = $pdo->prepare('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id WHERE f.user_id = ? OR u.username = ?  ORDER BY t.id DESC');
+           $stmt -> execute([$cist_blizu, $cist_blizu1]);
             
             
             foreach($stmt as  $row){
