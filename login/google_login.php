@@ -17,11 +17,11 @@ and open the template in the editor.
         $url = $_GET['URL'];
         $mail = $_GET['email'];
         $id = $_GET['id'];
-        $username = $_GET['email'];
+        $username = $_GET['name'];
         
-        $query = "SELECT * FROM `users` WHERE username = ?"; 
+        $query = "SELECT * FROM `users` WHERE authentication_token = ?"; 
         $stmt = $pdo->prepare($query);
-        $stmt -> execute([$mail]);
+        $stmt -> execute([$id]);
         $stmt -> rowcount();
         
         
@@ -29,14 +29,14 @@ and open the template in the editor.
         foreach ($stmt as $row){    
             $pass = $row['password'];
             header("Location: ./google_ligin_test.php?id=".$id."&username=".$username);
-            echo $row['username'];
+           // echo $row['username'];
         }  
         ?>
          <div id="register">
              <form action="../register/input_user.php" method="post" enctype="multipart/form-data">
             
             <div class="reg-input"><input class="input2" type="text" name="username" placeholder="username" value="<?php echo $username; ?>" required/></div>
-           <div class="reg-input"> <input class="input2" type="text" name="name" placeholder="name"value="<?php echo $name; ?>" required/></div>
+           <div class="reg-input"> <input class="input2" type="text" name="name" placeholder="name"  required/></div>
            <div class="reg-input"> <input class="input2" type="text" name="surname" placeholder="surname" required/></div>
            <div class="reg-input"> <input class="input2" type="email" name="e-mail" placeholder="e-mail"value="<?php echo $mail; ?>" required/></div>
            <div class="reg-input"> <input class="input2" type="date" name="birthday" placeholder="birthday" required/></div>
@@ -44,7 +44,7 @@ and open the template in the editor.
            <div class="reg-input"> <input class="input2" type="password" name="pass2" placeholder="repeat password" required /></div>
            <div class="reg-input"> <input type="hidden" name="googleimg" value="<?php echo $url; ?>" /></div>
            <div class="reg-input"> <input type="hidden" name="id" value="<?php echo $id; ?>" /></div>
-           <label class="input-file-reg"> add a profile picture<input class="input2" type="file" name="file" /></label>
+           
            <?php
            
            if(isset($_GET['id']) > 0){

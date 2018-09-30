@@ -7,11 +7,10 @@ and open the template in the editor.
 <?php
 
 include_once('./header.php');
-include_once ('../LogOut.php');
-if(isset($_COOKIE[$cookie_login]) > 0){
-    
-setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
 
+if(isset($_COOKIE[$cookie_login]) > 0){
+    include_once ('../LogOut.php');
+setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
 }
 ?>
 <html>
@@ -57,7 +56,7 @@ setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
   }
   
     
-        signOut();
+        
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();

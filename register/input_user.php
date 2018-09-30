@@ -10,7 +10,7 @@ $pass1 = $_POST['pass'];
 $pass2 = $_POST['pass2'];
 $county = $_POST['country']; 
 $birthday = $_POST['birthday'];
-$token = $_POST['token'];
+$token = $_POST['id'];
 echo $name. $surname. $ussername. $email. $pass1. $pass2. $county, $birthday;
 if(isset($_POST['googleimg']) > 0){
 $profileurl = $_POST['googleimg'];
