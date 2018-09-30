@@ -7,7 +7,12 @@ and open the template in the editor.
 <?php
 
 include_once('./header.php');
+include_once ('../LogOut.php');
 
+    session_start();
+    
+    session_destroy();
+setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
 ?>
 <html>
     <head>
@@ -25,7 +30,7 @@ include_once('./header.php');
         
         <div id="login">
         <form action="./login_check.php" method="post">
-            <input type="text" name="first_name" placeholder="username" autofocus class="skatle"/>
+            <input type="text" name="username" placeholder="username" autofocus class="skatle"/>
             <input type="password" name="pass" placeholder="password" class="skatle" />
             <input type="submit" class="button" value="Log In"/>
             <button type="button" class="button-up" onclick="location.href='../register/register.php';">Sign Up</button>

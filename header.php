@@ -3,6 +3,7 @@
 <?php
 include_once('./connection/database.php');
 include_once ('./connection/cookie_check.php');
+include_once ('./session.php');
 ?>
 <html>
     <head>
@@ -20,7 +21,8 @@ include_once ('./connection/cookie_check.php');
             <div id="leu">
                 welcome: 
                 <?php
-                    echo $_COOKIE[$cookie_login];
+                    echo $_SESSION['username'];
+                    
     ?>
                 
             </div>

@@ -2,7 +2,6 @@
 
 <?php
 include_once('../connection/database.php');
-
 ?>
 <html>
     <head>

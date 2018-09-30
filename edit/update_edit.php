@@ -1,7 +1,7 @@
 <?php
 
 include_once '../connection/database.php';
-
+include_once ('../connection/session.php');
 
 $ussername = $_POST['username'];
 $pass1 = $_POST['pass'];
