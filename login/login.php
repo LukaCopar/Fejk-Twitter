@@ -8,11 +8,11 @@ and open the template in the editor.
 
 include_once('./header.php');
 include_once ('../LogOut.php');
-
-    session_start();
+if(isset($_COOKIE[$cookie_login]) > 0){
     
-    session_destroy();
 setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
+
+}
 ?>
 <html>
     <head>
@@ -46,8 +46,7 @@ setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
                     
 
         </form>
-            <?php
-            /*
+            
             <div class="g-signin2" data-onsuccess="onSignIn" onclick="wait" data-theme="dark"></div>
                <script>
   function signOut() {
@@ -83,10 +82,10 @@ setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
             
         
         </div>
-        */
+        
        
         
         
-        ?>
+        
     </body>
 </html>

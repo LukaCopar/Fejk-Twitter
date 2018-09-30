@@ -9,7 +9,6 @@
     if(!isset($_SESSION['username'])&& 
             !in_array($_SERVER['REQUEST_URI'], $allowed)){
         echo $_SERVER['REQUEST_URI'];
-        die();
         header("Location: /Fejk-Twitter/login/login.php");
         
         
