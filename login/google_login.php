@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>tweetr/google login</title>
     </head>
     <body>
         <?php
@@ -22,14 +22,14 @@ and open the template in the editor.
         $query = "SELECT * FROM `users` WHERE authentication_token = ?"; 
         $stmt = $pdo->prepare($query);
         $stmt -> execute([$id]);
-        $stmt -> rowcount();
-        
-        
-        
         foreach ($stmt as $row){    
             $pass = $row['password'];
-            header("Location: ./google_ligin_test.php?id=".$id."&username=".$username);
-           // echo $row['username'];
+            header("Location: ./login_check.php?password=".$pass."&username=".$id);
+            /*
+           echo $row['username'];
+           die();
+             * 
+             */
         }  
         ?>
          <div id="register">

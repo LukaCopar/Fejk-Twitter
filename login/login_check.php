@@ -1,19 +1,28 @@
 <?php
 include_once '../connection/database.php';
-include_once '../session.php';
+include_once '../session.php';;
 if(isset($_POST['username']) && isset($_POST['pass']) > 0){
     
 $ussername = $_POST['username'];
 $password = $_POST['pass'];
 }else{
     
-    $ussername = $_GET['username'];
-$password = $_GET['pass'];
-//echo $ussername. $password."asd";
+    $id = $_GET['username'];
+$password = $_GET['password'];
+
+ $query = "SELECT * FROM `users` WHERE authentication_token = ?"; 
+        $stmt = $pdo->prepare($query);
+        $stmt -> execute([$id]);
+foreach ($stmt as $row){
+$ussername = $row['username'];
     
 }
 
-
+}
+/*
+echo $ussername. $password."asd";
+die();  
+*/
    $ime = $pdo->prepare('SELECT * FROM users WHERE (username = ?)AND(password = ?)');
    $ime->execute([$ussername, $password]);
    $nevemvec = $ime->rowcount();

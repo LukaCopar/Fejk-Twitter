@@ -2,7 +2,7 @@
 
 <?php
 include_once('./connection/database.php');
-include_once ('./connection/cookie_check.php');
+include_once ('./cookie_check.php');
 include_once ('./session.php');
 ?>
 <html>

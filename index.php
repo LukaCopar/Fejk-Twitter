@@ -3,7 +3,6 @@
 <?php
     include_once('./header.php');
 include_once './connection/database.php';
-include_once ('./connection/cookie_check.php');
 ?>
 <html>
     <head>
@@ -34,7 +33,7 @@ include_once ('./connection/cookie_check.php');
         echo  $row['profile_pic_URL'];}?>">
                 </div>
                 <div class="profile2-info">
-                    <span class="tweet-username"><?php echo $_COOKIE[$cookie_login];?></span>
+                    <span class="tweet-username"><a href="./edit/edit.php"><?php echo $_SESSION['username'];?></a></span>
                 <?php echo "@".$row['name'].$row['surname']; ?>
                 </div>
             </div>
@@ -86,7 +85,7 @@ include_once ('./connection/cookie_check.php');
         
         
         <div id="desn-main">
-            desn
+            
             
         </div>
         

@@ -1,7 +1,6 @@
 <?php
 
-include_once '../connection/database.php';
-include_once ('../connection/session.php');
+include_once './header.php';
 
 $ussername = $_POST['username'];
 $pass1 = $_POST['pass'];
@@ -10,9 +9,20 @@ $county = $_POST['country'];
 
 $ussername2 = $_COOKIE[$cookie_login];
 
+$query = "SELECT password FROM users WHERE id = ?";
+$stmt =  $pdo->prepare($query);
+$stmt->execute([$_SESSION['user_id']]); 
 
-if($pass1 != $pass2){
-     header("Location: ./register.php?id=1");
+foreach ($stmt as $row){
+    $pass_check = $row['password'];
+    /*
+    echo $pass_check."psad";
+    die();
+     * 
+     */
+}
+if($pass1 != $pass_check){
+     header("Location: ./edit.php?id=1");
 }else{
 
         
