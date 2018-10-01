@@ -15,7 +15,10 @@ and open the template in the editor.
     </head>
     
     <body>
+        <div id="leu-main"> 
+        </div>
         
+        <div id="sredinski-main" style="text-align: left;">
         <?php
         $tosemjaz = $_COOKIE[$cookie_login];
         
@@ -50,7 +53,7 @@ and open the template in the editor.
                 $stmt2 = $pdo->prepare($query2);
                 $stmt2 -> execute([$jebemtimatrupizdotatijojebem,$row['id']]);
                 $folowa = $stmt2->rowcount();
-                echo $folowa.$row['id'];
+               // echo $folowa.$row['id'];
                 
             echo ' <div class="user-foolow">';
             echo ' <div>';
@@ -75,5 +78,6 @@ and open the template in the editor.
             echo '</div>';
             }
             ?>
+        </div>
     </body>
 </html>

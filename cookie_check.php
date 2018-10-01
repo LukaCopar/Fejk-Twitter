@@ -10,7 +10,7 @@ $url = ["./login/login.php", "dawdawd"];
 
 if($login != $_SESSION['username'] && in_array($_SERVER['REQUEST_URI'], $url)){
     setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
-    header('Location: ../Fejk-Twitter/LogOut.php');
+    header('Location: ./LogOut.php');
     
 }
 

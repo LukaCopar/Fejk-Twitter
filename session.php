@@ -9,12 +9,12 @@
     if(!isset($_SESSION['username'])&& 
             !in_array($_SERVER['REQUEST_URI'], $allowed)){
         echo $_SERVER['REQUEST_URI'];
-        header("Location: /Fejk-Twitter/login/login.php");
+        header("Location: ./login/login.php");
         
         
     }
     if (!isset($_SESSION['user_id']) && 
             !in_array($_SERVER['REQUEST_URI'], $allowed)) {
-        header("Location: /Fejk-Twitter/login/login.php");
+        header("Location: ./login/login.php");
     }
  

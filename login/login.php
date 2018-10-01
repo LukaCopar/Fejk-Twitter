@@ -18,7 +18,7 @@ setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
         <meta charset="UTF-8">
         <title>Login</title>
         <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="736730603166-pkb2t8rimb1a4k7jbcoo0sh1h9asugq0.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="736730603166-s77em8je39nn9b177snjmkmdc7un2aoi.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     
@@ -68,7 +68,7 @@ setcookie($cookie_login,$cookie_value1, time() - 3600,"/");
         
         
         
-        var url = "http://localhost/Fejk-Twitter/login/google_login.php?name="+profile.getGivenName()+"&URL="+profile.getImageUrl()+"&email="+profile.getEmail()+"&id="+profile.getId()+"&fullname="+profile.getName();
+        var url = "http://projekt1.lcopar.eu/login/google_login.php?name="+profile.getGivenName()+"&URL="+profile.getImageUrl()+"&email="+profile.getEmail()+"&id="+profile.getId()+"&fullname="+profile.getName();
   
         window.location.href = url;};
       

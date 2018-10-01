@@ -52,7 +52,7 @@ include_once './connection/database.php';
             foreach ($stmt4 as $row69 ){
             $cist_blizu = $row69['id'];
             }
-           $stmt = $pdo->prepare('SELECT * FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id WHERE f.user_id = ? OR u.username = ?  ORDER BY t.id DESC');
+           $stmt = $pdo->prepare('SELECT u.name,u.surname,u.profile_pic_URL,t.id,t.picture,u.username,t.content FROM tweets t INNER JOIN users u ON t.user_id=u.id INNER JOIN follows f ON f.follower_id = u.id WHERE f.user_id = ? OR u.username = ?  ORDER BY t.id DESC');
            $stmt -> execute([$cist_blizu, $cist_blizu1]);
             
             
@@ -75,7 +75,30 @@ include_once './connection/database.php';
              echo '  </div>';
             
             echo ' <div class="tweet-bottom">';
-             echo '<button class="tweet-icons-bottom" type="button" ><div>Like</div></button>';
+            $querylike="SELECT * FROM likes WHERE tweet_id=?";
+            $stmtlike = $pdo -> prepare($querylike);
+            $stmtlike ->execute([$row['id']]);
+            $koklikou = $stmtlike -> rowcount();        
+            
+           
+            
+            
+            ?>
+            <button class="tweet-icons-bottom" type="button" onclick="location.href='./like_dislike.php?tweet_id=<?php echo $row['id'];  ?>'"><div><?php 
+$queryTest="SELECT * FROM likes WHERE (user_id = ?) AND (tweet_id = ?)";
+$stmt1 = $pdo->prepare($queryTest);
+$stmt1->execute([$_SESSION['user_id'],$row['id']]);
+$ajez = $stmt1->rowcount();
+if($ajez > 0){
+    
+echo "Dislike |";
+
+}else{
+
+echo "Like |";
+}
+echo $koklikou;  ?></div></button>
+             <?php
              echo '</div>';
                 
             echo '</div>';
