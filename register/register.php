@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <?php
+    
+    
     include_once './header.php';
     ?>
     <head>
@@ -26,6 +28,7 @@
                echo '<script>alert("passwords do not match!")</script>';
                
            }
+           
            ?>
            <select name="country">
                <?php
@@ -35,7 +38,7 @@
                         echo '<option value="'.$row['id'].'" >'.$row['name'].'</option>';
                        
                     }
-               
+                
                ?>
                
                

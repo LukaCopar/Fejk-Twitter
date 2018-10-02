@@ -28,9 +28,9 @@ if($pass1 != $pass_check){
         
 if(!empty($ussername) && !empty($county)  ){
     	$allowedFileTypes = ['jpg', 'png', 'jpeg', 'gif'];
-	$targetDir = dirname(getcwd(), 1).'\images';
+	$targetDir = dirname(getcwd(), 1).'/images';
 	$targetFile = $targetDir;
-	$url = 'images';
+	$url = '/images';
 	$fileType = strtolower(pathinfo($targetDir.basename($_FILES['file']['name']),PATHINFO_EXTENSION));
 	$fileName = basename($_FILES['file']['name']);
 
@@ -46,7 +46,7 @@ if(!empty($ussername) && !empty($county)  ){
 	        if($_FILES['file']['size'] <= 40000000) //Ne sme bit večja od 40MB
 	        {
 	        	echo "File is smaller than 20MB<br>";
-	        	$query = "SELECT COUNT(*) FROM tweets";
+	        	$query = "SELECT COUNT(*) FROM users";
 	        	$stmt = $pdo->query($query);
 	        	$numPosts = $stmt->fetchColumn();
 	        	echo $numPosts;

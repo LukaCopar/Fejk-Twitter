@@ -13,9 +13,9 @@ $userID = $jau;
 
 
 	$allowedFileTypes = ['jpg', 'png', 'jpeg', 'gif'];
-	$targetDir = dirname(getcwd(), 1).'\images';
+	$targetDir = dirname(getcwd(), 1).'/images';
 	$targetFile = $targetDir;
-	$url = 'images';
+	$url = '/images';
 	$fileType = strtolower(pathinfo($targetDir.basename($_FILES['file']['name']),PATHINFO_EXTENSION));
 	$fileName = basename($_FILES['file']['name']);
 
@@ -36,20 +36,24 @@ $userID = $jau;
 	        	$numPosts = $stmt->fetchColumn();
 	        	echo $numPosts;
 	        	$numPosts++;
-	        	$targetFile .= "\img".$numPosts.".".$fileType;
-	        	$url .= "\img".$numPosts.".".$fileType;
+	        	$targetFile .= "/img".$numPosts.".".$fileType;
+	        	$url .= "/img".$numPosts.".".$fileType;
 	        	if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) 
 	        	{
 			        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
 			        $query = "INSERT INTO `tweets`(`user_id`, `content`, picture) VALUES (?,?,?)";
                                 $stmt = $pdo ->prepare($query);
                                 $stmt -> execute([$userID, $content, $url]);
-			       // echo $url;
+                                /*
+			       echo $url.$targetDir;
+                               die();
+                                 */
+                                 
 			    } 
 
 			    else 
 			    {
-			        echo "<script> alert(Sorry, there was an error uploading your file.)</scritp";
+			       // echo "<script> alert(Sorry, there was an error uploading your file.)</scritp";
 			       // header('Location: ../index.php');
 			    }
 	        }
@@ -58,17 +62,17 @@ $userID = $jau;
 
     else 
     {
-        echo "File is not an image.";
+       // echo "File is not an image.";
         //NOT OK
     }
 }
 else
 {
-    
+ 
    $query = "INSERT INTO `tweets`(`user_id`, `content`) VALUES (?,?)";
                                 $stmt = $pdo ->prepare($query);
                                 $stmt -> execute([$userID, $content]);
-	echo "Choose a file pls";
+	//echo "Choose a file pls";
 }
 
 

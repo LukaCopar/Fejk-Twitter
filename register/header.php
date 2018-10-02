@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <?php
-include_once ('../connection/cookie_check.php');
+//include_once ('../connection/cookie_check.php');
 include_once('../connection/database.php');
-include_once ('../session.php');
+//include_once ('../session_dve.php');
 ?>
 <html>
     <head>

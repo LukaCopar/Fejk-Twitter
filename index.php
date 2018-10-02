@@ -97,7 +97,22 @@ echo "Dislike |";
 
 echo "Like |";
 }
-echo $koklikou;  ?></div></button>
+echo $koklikou; ?></div></button>
+            
+            
+            <?php
+             
+            $queryTest2="SELECT * FROM tweets WHERE (user_id = ?) AND (id = ?)";
+            $stmt1 = $pdo->prepare($queryTest2);
+            $stmt1->execute([$_SESSION['user_id'], $row['id']]);
+            $ajez = $stmt1->rowcount();
+            if($ajez > 0){
+            $kabrisat = "'./delete_tweetr.php?tweet_id=". $row['id']."'";
+            echo '<button class="tweet-icons-bottom" type="button" onclick="location.href='.$kabrisat.'">Delete Dis?</button>';
+
+            }
+            ?>
+             
              <?php
              echo '</div>';
                 

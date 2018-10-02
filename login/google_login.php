@@ -48,7 +48,7 @@ and open the template in the editor.
            <?php
            
            if(isset($_GET['id']) > 0){
-               echo '<script>alert("passwords do not match!")</script>';
+               //echo '<script>alert("passwords do not match!")</script>';
                
            }
            ?>
